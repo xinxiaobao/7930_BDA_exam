@@ -2,31 +2,8 @@
 from pymining import itemmining, assocrules
 
 # input data
-# transactions =  [
-#         ['Mi','Be', 'Di'],
-#         ['Br', 'Bu', 'Mi'],
-#         ['Mi', 'Di', 'Co'],
-#         ['Br', 'Bu', 'Co'],
-        
-#         ['Be', 'Co', 'Di'],
-#         ['Mi', 'Di', 'Br', 'Bu'],
-#         ['Br', 'Bu', 'Di'],
-#         ['Be', 'Di'],
-        
-#         ['Mi', 'Di', 'Br', 'Bu'],
-#         ['Be', 'Co']        
-#     ]
-# transactions =  [
-#         ['m','c', 'b'],
-#         ['m', 'p', 'j'],
-#         ['m', 'c', 'b',  'n'],
-#         ['c', 'j'],
-        
-#         ['m', 'p', 'b'],
-#         ['m', 'c', 'b', 'j'],
-#         ['c', 'b', 'j'],
-#         ['b', 'c'],  
-#     ]
+
+
 
 data = []
 with open('./Frequent_Itemset.dat', 'r') as f:
