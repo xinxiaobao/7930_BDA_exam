@@ -1,9 +1,7 @@
 # Frequent Itemsets
 from pymining import itemmining, assocrules
 
-# input data
-
-
+# input data from dat file
 
 data = []
 with open('./Frequent_Itemset.dat', 'r') as f:
