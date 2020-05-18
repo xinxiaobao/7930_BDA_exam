@@ -6,15 +6,24 @@ import matplotlib.pyplot as plt
 print('\n\n ============ CART ============\n\n')
 
 def createDataSet():
-    dataSet = [[0, 1, 1, 0, 'N'], 
-               [0, 1, 0, 0, 'N'], 
-               [0, 1, 1, 1, 'Y'], 
-               [1, 0, 0, 0, 'Y'], 
-               [1, 1, 0, 1, 'Y'], 
-               [1, 0, 1, 0, 'Y'], 
-               [1, 1, 1, 1, 'Y'],
-               [0, 0, 1, 1,  'Y']]
-    labels = ['Is-Fever', 'Tired', 'Cough', 'Short']
+
+    dataSet = []
+    labels = []
+    with open('./decision_tree_data.dat', 'r') as f:
+        data = f.readlines()
+        labels = data[0].split()
+        for line in data[1:]:
+            dataSet.append(list(line.split()))
+            
+    # dataSet = [['A', 1, 1, 0, 'N'], 
+    #            ['A', 1, 0, 0, 'N'], 
+    #            ['A', 1, 1, 1, 'Y'], 
+    #            ['B', 0, 0, 0, 'Y'], 
+    #            ['B', 1, 0, 1, 'Y'], 
+    #            ['B', 0, 1, 0, 'Y'], 
+    #            ['B', 1, 1, 1, 'Y'],
+    #            ['A', 0, 1, 1,  'Y']]
+    # labels = ['Is-Fever', 'Tired', 'Cough', 'Short']
     # dataSet = []
     # for i in range(5):
     #     dataSet.append([1, 1, 1, 'Y'])

@@ -6,15 +6,24 @@ import matplotlib.pyplot as plt
 print('\n\n ============ ID3 ============\n\n')
 
 def createDataSet():
-    dataSet = [[0, 1, 0, 'Y'], 
-               [1, 1, 1, 'Y'], 
-               [1, 0, 1, 'Y'], 
-               [1, 0, 1, 'Y'], 
-               [0, 0, 0, 'N'], 
-               [0, 0, 0, 'N'], 
-               [0, 0, 0, 'N'],
-               [1, 0, 0, 'N']]
-    labels = ['Race', 'Income', 'Child']
+
+    dataSet = []
+    labels = []
+    with open('./decision_tree_data.dat', 'r') as f:
+        data = f.readlines()
+        labels = data[0].split()
+        for line in data[1:]:
+            dataSet.append(list(line.split()))
+
+    # dataSet = [[0, 1, 0, 'Y'], 
+    #            [1, 1, 1, 'Y'], 
+    #            [1, 0, 1, 'Y'], 
+    #            [1, 0, 1, 'Y'], 
+    #            [0, 0, 0, 'N'], 
+    #            [0, 0, 0, 'N'], 
+    #            [0, 0, 0, 'N'],
+    #            [1, 0, 0, 'N']]
+    # labels = ['Race', 'Income', 'Child']
     return dataSet, labels
 
 def calcShannonEnt(dataSet):
