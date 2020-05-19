@@ -44,7 +44,8 @@ for i in range(m):
 
 # beta with S
 # input S and beta
-beta = 0.9
+ce = [1/n] * n
+beta = 0.8
 s = [1, 0, 0, 0]
 
 s_num = len(s)
@@ -57,4 +58,5 @@ for i in range(m):
     # print('Iteration'+ str(i+1), ':',ce)
 print('\n\n\n ======== M with S ======== \n')  
 print(AM)
-# print(ce)
+
+print('result:', ce)
