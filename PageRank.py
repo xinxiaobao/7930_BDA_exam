@@ -1,45 +1,60 @@
 # Q1 b
 import numpy as np 
 
-ATD = [[0, 0.5, 0.5],
-        [0, 0, 0.5],
-        [0, 0.5, 0]]
+# input data
+A = []
+with open('./PageRank_data.dat', 'r') as f:
+    for line in f.readlines():
+        A.append(list(map(int, line.split())))
 
 
-# ATD = [[0, 0.5, 0.5],
-#         [0.5, 0, 0.5],
-#         [0.5, 0.5, 0]]
-
-
-ATD = [[0, 1/3, 0, 0.25, 0],
-        [0, 0 , 1, 0.25, 0],
-        [0.5, 0, 0, 0.25, 1],
-        [0, 1/3, 0, 0, 0],
-        [0.5, 1/3, 0, 0.25, 0]]
-
-# ce = [2, 1/3, 1/3]
-ce = [0.2, 0.2, 0.2, 0.2, 0.2,]
-
-ATD = np.array(ATD)
+A = np.array(A)
+ATD = A.T/A.T.sum(axis = 0)
+n = len(A[0])
+ce = [1/n] * n
 ce = np.array(ce).T
-# print(ATD, ce)
-print('=======================================')
 
+print('\n ======== initial directed graph ======== \n')     
+print(A)
+print('\n\n\n ======== ATD ======== \n')   
+print(ATD)
 
-n = 20
-for i in range(n):
+print('\n================== iteration results =====================\n')
+print('initial ce:', ce)
+m = 20
+for i in range(m):
     ce = ATD @ ce
-    print('Iteration'+ str(i+1), ':',ce)
-print('=========================')
+    # print('Iteration'+ str(i+1), ':',ce)
+print('==============================================')
 # print(ce)
 
 
-# Q1 c 
-# m = 20
-# for i in range(m):
-#     ce = 0.04 + 0.8 * (ATD @ ce)
-#     print('Iteration'+ str(i+1), ':',ce)
+# beta without S
+# input beta
+beta = 0.8
+ce = [1/n] * n
 
 
-# print(np.array([1/3]*3))
-# print([1/3]*3)
+M = (1 - beta)/n + beta*ATD
+print('\n\n\n ======== M no S ======== \n')  
+print(M)
+for i in range(m):
+    ce =M @ ce
+    # print('Iteration'+ str(i+1), ':',ce)
+
+# beta with S
+# input S and beta
+beta = 0.9
+s = [1, 0, 0, 0]
+
+s_num = len(s)
+s_n = 1
+s = np.array(s).reshape(s_num, 1)
+
+AM = (s*(1 - beta)/s_n) + beta*ATD
+for i in range(m):
+    ce =AM @ ce
+    # print('Iteration'+ str(i+1), ':',ce)
+print('\n\n\n ======== M with S ======== \n')  
+print(AM)
+# print(ce)
