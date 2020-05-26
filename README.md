@@ -10,6 +10,6 @@
 
 ## Excel tools
 
-## Decision Tree
+## Decision Tree - C4.5, ID3, CART
 
 ## ...
