@@ -1,9 +1,12 @@
-Is-Fever  Tired  Cough  Short
-0  1  1  0  N  
-0  1  0  0  N  
-0  1  1  1  Y  
-1  0  0  0  Y  
-1  1  0  1  Y  
-1  0  1  0  Y  
-1  1  1  1  Y 
-0  0  1  1  Y
+Sex WorkE Edu
+1  0  M  F  
+0  1  B  F 
+1  0  B  T 
+0  4  M  T 
+0  4  B  T  
+0  4  B  T 
+1  1  M  T  
+0  0  M  F 
+0  1  B  T
+0  1  M  F  
+0  2  M  F
